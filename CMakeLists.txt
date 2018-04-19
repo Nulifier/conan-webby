@@ -12,6 +12,13 @@ add_library(webby
 	source_subfolder/webby_win32.h
 )
 
+if (CMAKE_HOST_WIN32)
+	target_link_libraries(webby
+		INTERFACE
+			ws2_32
+	)
+endif()
+
 install(
 	FILES
 		source_subfolder/webby.h
